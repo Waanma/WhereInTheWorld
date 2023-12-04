@@ -4,13 +4,10 @@ import { themes } from './constants/themes/index';
 import AppNavigator from './navigation';
 import { useFonts } from "expo-font";
 import { ActivityIndicator, View } from 'react-native';
+import { useStore } from './store/appStore';
 
 export default function App() {
-  const [theme, setTheme] = useState('default');
-
-  const toggleTheme = () => {
-    setTheme(theme === 'default' ? 'dark' : 'default');
-  };
+  const { theme, changeTheme } = useStore();
 
   const [loaded] = useFonts({
     "RobotoSerif": require('./assets/fonts/RobotoSerif-Bold.ttf'),
@@ -32,7 +29,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={themes[theme]}>
-      <AppNavigator toggleTheme={toggleTheme} />
+      <AppNavigator changeTheme={changeTheme} />
     </ThemeProvider>
   );
 }

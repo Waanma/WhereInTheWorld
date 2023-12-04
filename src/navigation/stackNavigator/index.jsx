@@ -6,17 +6,24 @@ import { TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Text } from "react-native";
 import { styled } from "styled-components";
+import { useStore } from "../../store/appStore";
+import { useEffect } from "react";
 
 const Stack = createNativeStackNavigator();
 
-const StackNavigator = ({ toggleTheme, theme }) => {
+const StackNavigator = () => {
+    const { theme, changeTheme, initializeTheme } = useStore();
+
+    useEffect(() => {
+        initializeTheme();
+    }, [initializeTheme]);
 
     const moonName = () => {
         return theme === "default" ? "moon" : "moon-outline";
     };
 
     const moonColor = () => {
-        return theme === "default" ? "#FFF" : "black";
+        return theme === "dark" ? "#FFF" : "#000000";
     }
 
     const DarkModeText = styled.Text`
@@ -43,7 +50,7 @@ const StackNavigator = ({ toggleTheme, theme }) => {
                 options={() => ({
                     headerRight: () => (
                         <TouchableOpacity
-                            onPress={toggleTheme}
+                            onPress={changeTheme}
                             style={
                                 {
                                     flexDirection: "row",
@@ -62,7 +69,7 @@ const StackNavigator = ({ toggleTheme, theme }) => {
                 options={() => ({
                     headerRight: () => (
                         <TouchableOpacity
-                            onPress={toggleTheme}
+                            onPress={changeTheme}
                             style={
                                 {
                                     flexDirection: "row",

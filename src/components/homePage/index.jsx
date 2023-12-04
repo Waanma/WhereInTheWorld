@@ -7,7 +7,6 @@ import { useState } from "react";
 import * as Animatable from "react-native-animatable";
 
 const HomePage = () => {
-
   const [selectedRegion, setSelectedRegion] = useState("All");
   const [searchText, setSearchText] = useState("");
 

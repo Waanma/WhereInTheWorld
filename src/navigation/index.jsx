@@ -1,10 +1,10 @@
 import { NavigationContainer } from "@react-navigation/native";
 import StackNavigator from "./stackNavigator";
 
-const Navigation = ({toggleTheme}) => {
+const Navigation = ({ changeTheme }) => {
     return (
         <NavigationContainer>
-            <StackNavigator toggleTheme={toggleTheme}/>
+            <StackNavigator changeTheme={changeTheme} />
         </NavigationContainer>
     )
 }

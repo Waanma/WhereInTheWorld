@@ -6,11 +6,7 @@ import Item from "../item/index";
 import { useState } from "react";
 import * as Animatable from "react-native-animatable";
 
-const HomePage = () => {
-  const [selectedRegion, setSelectedRegion] = useState("All");
-  const [searchText, setSearchText] = useState("");
-
-  const Container = styled.View`
+const Container = styled.View`
     flex-direction: column;
     align-items: center;
     height: 100%;
@@ -27,7 +23,10 @@ const HomePage = () => {
   `
   const ItemContainer = styled.View`
   `
-
+const HomePage = () => {
+  const [selectedRegion, setSelectedRegion] = useState("All");
+  const [searchText, setSearchText] = useState("");
+  
   return (
     <Animatable.View
       animation="fadeIn"

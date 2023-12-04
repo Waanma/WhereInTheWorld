@@ -2,9 +2,7 @@ import { KeyboardAvoidingView, Platform } from "react-native";
 import styled from "styled-components";
 import Ionicons from '@expo/vector-icons/Ionicons';
 
-const SearchBar = ({ searchText, setSearchText }) => {
-
-    const SearchContainer = styled.View`
+const SearchContainer = styled.View`
         width: 100%;
         height: 100%;
         border-radius: 10px;
@@ -39,6 +37,8 @@ const SearchBar = ({ searchText, setSearchText }) => {
         border-radius: 2px;
         font-family: "QuicksandMedium";
     `
+const SearchBar = ({ searchText, setSearchText }) => {
+
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}

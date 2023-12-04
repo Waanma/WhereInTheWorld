@@ -1,15 +1,14 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import countryApi from "../../api/base.api";
-import { useNavigation } from "@react-navigation/native";
 import { ActivityIndicator, View } from "react-native";
 import * as Animatable from 'react-native-animatable';
+import ItemCard from "../itemCard/index";
 
 const Item = ({ selectedRegion, searchText }) => {
 
     const [allCountries, setAllCountries] = useState([]);
     const [loading, setLoading] = useState(false);
-    const navigation = useNavigation();
     const [filteredData, setFilteredData] = useState([]);
 
     useEffect(() => {
@@ -105,33 +104,8 @@ const Item = ({ selectedRegion, searchText }) => {
                             data={filteredData}
                             showsVerticalScrollIndicator={false}
                             ItemSeparatorComponent={this.renderSeparator}
-                            renderItem={({ item }) => (
-                                <ItemContainer
-                                    onPress={() => { navigation.navigate("Details", { itemData: item }) }}
-                                    style={
-                                        {
-                                            borderWidth: 2,
-                                            height: 350,
-                                            borderColor: "#707070",
-                                            borderRadius: 15,
-                                            gap: 6,
-                                            width: 300,
-                                        }
-                                    }>
-                                    <CountryImage source={{ uri: item.flags.png }} />
-                                    <TextContent boldText>
-                                        {item.name.common}
-                                    </TextContent>
-                                    <TextContent>
-                                        Capital: {item.capital}
-                                    </TextContent>
-                                    <TextContent>
-                                        Region: {item.region}
-                                    </TextContent>
-                                    <TextContent>
-                                        Population : {item.population}
-                                    </TextContent>
-                                </ItemContainer>
+                            renderItem={({item}) => (
+                                <ItemCard item={item}/>
                             )}
                         />
                 }

@@ -2,37 +2,31 @@ import styled from "styled-components"
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Image } from "react-native";
 
-const ItemDetails = () => {
-    const navigation = useNavigation();
-    const route = useRoute();
-    const { itemData } = route.params;
-
-
-    const ContentContainer = styled.ScrollView`
+const ContentContainer = styled.ScrollView`
         height: 100%;
         background-color: ${({ theme }) => theme.colors.background};
     `
-    const ImgContainer = styled.View`
+const ImgContainer = styled.View`
         justify-content: center;
         align-items: center;
         padding-vertical: 10%;
         width: 100%;
     `
-    const TitleText = styled.Text`
+const TitleText = styled.Text`
         margin-left: 25px;
         color: ${({ theme }) => theme.colors.text};
         font-weight: bold;
         font-size: 20px;
     `
-    const FirstDetails = styled.View`
+const FirstDetails = styled.View`
         margin: 25px;
         gap: 5px;
     `
-    const SecondDetails = styled.View`
+const SecondDetails = styled.View`
         margin: 25px;
         gap: 5px;
     `
-    const TextDetails = styled.Text`
+const TextDetails = styled.Text`
     color: ${({ theme }) => theme.colors.text};
     font-family: QuicksandMedium;
         ${(props) => props.padding && `
@@ -40,27 +34,32 @@ const ItemDetails = () => {
             font-family: QuicksandBold;
         `}
     `
-    const BordersContainer = styled.View`
+const BordersContainer = styled.View`
         width: 100%;
         align-items: center;
         flex-direction: column;
     `
-    const Border = styled.View`
+const Border = styled.View`
         border: 1px solid;
         padding: 5px;
     `
-    const BorderTitle = styled.View`
+const BorderTitle = styled.View`
     
     `
-    const BordersContent = styled.View`
+const BordersContent = styled.View`
         align-items: center;
     `
-    const Borders = styled.View`
+const Borders = styled.View`
         padding-horizontal: 10%;
         flex-direction: row;
         flex-wrap: wrap;
         gap: 10px; 
     `
+const ItemDetails = () => {
+    const navigation = useNavigation();
+    const route = useRoute();
+    const { itemData } = route.params;
+
     return (
         <ContentContainer>
             <ImgContainer>

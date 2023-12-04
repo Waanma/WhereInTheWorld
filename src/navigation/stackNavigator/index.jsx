@@ -21,7 +21,6 @@ const StackNavigator = () => {
     const moonName = () => {
         return theme === "default" ? "moon" : "moon-outline";
     };
-
     const moonColor = () => {
         return theme === "dark" ? "#FFF" : "#000000";
     }
@@ -59,7 +58,9 @@ const StackNavigator = () => {
                             }
                         >
                             <Ionicons name={moonName()} size={20} color={moonColor()} />
-                            <DarkModeText>Dark Mode</DarkModeText>
+                            <DarkModeText>
+                                {theme === "default" ? "Dark mode" : "Light mode"}
+                            </DarkModeText>
                         </TouchableOpacity>
                     ),
                 })}
@@ -78,7 +79,9 @@ const StackNavigator = () => {
                             }
                         >
                             <Ionicons name={moonName()} size={17} color={moonColor()} />
-                            <Text>Dark Mode</Text>
+                            <DarkModeText>
+                                {theme === "default" ? "Dark mode" : "Light mode"}
+                            </DarkModeText>
                         </TouchableOpacity>
                     ),
                 })}

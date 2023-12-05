@@ -5,4 +5,4 @@ Usage:
 The application contains a search engine and a filter by region, you can access the data for each country by clicking on each Card.
 
 Capture:
-![Aplication](assets/CaptureExample.JPG)
+![](assets/CaptureExample.JPG)

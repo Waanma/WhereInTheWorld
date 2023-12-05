@@ -1,14 +1,15 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
 import ItemDetails from "../../screens/itemDetails/index";
 import Home from "../../screens/home/index";
 import { TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { Text } from "react-native";
 import { styled } from "styled-components";
 import { useStore } from "../../store/appStore";
 import { useEffect } from "react";
 
+const DarkModeText = styled.Text`
+        font-family: QuicksandMedium;
+    `
 const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
@@ -24,10 +25,6 @@ const StackNavigator = () => {
     const moonColor = () => {
         return theme === "dark" ? "#FFF" : "#000000";
     }
-
-    const DarkModeText = styled.Text`
-        font-family: QuicksandMedium;
-    `
 
     return (
         <Stack.Navigator

@@ -1,7 +1,6 @@
-import styled from "styled-components";
 import Details from "../../components/itemDetails";
 
-const ItemDetails = ({ navigation, route }) => {
+const ItemDetails = () => {
 
     return (
         <Details />

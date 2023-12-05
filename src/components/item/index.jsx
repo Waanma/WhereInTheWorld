@@ -1,10 +1,22 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 import countryApi from "../../api/base.api";
-import { ActivityIndicator, View } from "react-native";
+import { ActivityIndicator, Text, View } from "react-native";
 import * as Animatable from 'react-native-animatable';
 import ItemCard from "../itemCard/index";
 
+const NoResultsText = styled.Text`
+    color: #fff;
+    padding-top: 30px;
+    font-family: QuicksandMedium;
+`
+const Container = styled.View`
+        height: 100%;
+        width: 100%;
+        align-items: center;
+    `
+const CountryFlatList = styled.FlatList`
+    `
 const Item = ({ selectedRegion, searchText }) => {
 
     const [allCountries, setAllCountries] = useState([]);
@@ -44,32 +56,7 @@ const Item = ({ selectedRegion, searchText }) => {
         }
     }
 
-    const Container = styled.View`
-        height: 100%;
-        width: 100%;
-        align-items: center;
-    `
-    const CountryFlatList = styled.FlatList`
-    `
-    const ItemContainer = styled.TouchableOpacity`
-        background-color: #F6B379;
-    `
-    const CountryImage = styled.Image`
-        height: 200px;
-        border-top-left-radius: 11px;
-        border-top-right-radius: 11px;
-    `
-    const TextContent = styled.Text`
-        color: ${({ theme }) => theme.colors.text2};
-        font-family: QuicksandMedium;
-        padding-left: 10px;
-        ${(props) => props.boldText && `
-            font-weight: bold;
-            font-size: 20px;
-            font-family: QuicksandBold;
-            padding: 10px;
-        `}
-    `
+
     renderSeparator = () => {
         return (
             <View
@@ -99,15 +86,18 @@ const Item = ({ selectedRegion, searchText }) => {
                             />
                         </View>
                         :
-
-                        <CountryFlatList
-                            data={filteredData}
-                            showsVerticalScrollIndicator={false}
-                            ItemSeparatorComponent={this.renderSeparator}
-                            renderItem={({item}) => (
-                                <ItemCard item={item}/>
-                            )}
-                        />
+                        filteredData.length === 0 ? (
+                            <NoResultsText>Country not found</NoResultsText>
+                        )
+                            :
+                            <CountryFlatList
+                                data={filteredData}
+                                showsVerticalScrollIndicator={false}
+                                ItemSeparatorComponent={this.renderSeparator}
+                                renderItem={({ item }) => (
+                                    <ItemCard item={item} />
+                                )}
+                            />
                 }
             </Container>
         </Animatable.View>

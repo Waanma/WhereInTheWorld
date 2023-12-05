@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import { themes } from './constants/themes/index';
 import AppNavigator from './navigation';

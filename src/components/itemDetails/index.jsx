@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 import { Image } from "react-native";
 
 const ContentContainer = styled.ScrollView`
@@ -56,7 +56,6 @@ const Borders = styled.View`
         gap: 10px; 
     `
 const ItemDetails = () => {
-    const navigation = useNavigation();
     const route = useRoute();
     const { itemData } = route.params;
 
